@@ -2,6 +2,12 @@
 
 A NestJS API for converting between fiat and cryptocurrencies. This project allows users to create and retrieve currency quotes with real-time exchange rates.
 
+# Related Projects
+
+This API has a companion frontend project that provides a user interface for the currency exchange functionality:
+
+- [Currency Exchange UI](https://github.com/NiicooR/koywe-challenge-ui) - Next.js frontend application for interacting with this API
+
 ## Prerequisites
 
 - Node.js (v16 or higher)
