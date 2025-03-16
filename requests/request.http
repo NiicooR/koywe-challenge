@@ -1,0 +1,44 @@
+// ===========================================
+// Environment variables for requests
+// ===========================================
+@baseUrl = http://localhost:3001
+@quoteId = your-quote-id-here  
+// Replace after creating a quote
+
+### Register a new user
+POST {{baseUrl}}/auth/register
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "name": "Test User",
+  "password": "password123"
+}
+
+### Login with existing user
+# @name login
+POST {{baseUrl}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "password123"
+}
+
+### Capture token from response
+@authToken = {{login.response.body.accessToken}}
+
+### Create a quote (with authentication)
+POST {{baseUrl}}/quote
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "amount": 5000,
+  "from": "ETH",
+  "to": "ARS"
+}
+
+### Get a quote by ID (with authentication)
+GET {{baseUrl}}/quote/{{quoteId}}
+Authorization: Bearer {{authToken}}

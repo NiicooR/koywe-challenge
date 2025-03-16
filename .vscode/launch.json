@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug NestJS",
+        "type": "node",
+        "request": "launch",
+        "args": ["${workspaceFolder}/src/main.ts"],
+        "runtimeArgs": ["-r", "ts-node/register", "-r", "tsconfig-paths/register"],
+        "sourceMaps": true,
+        "cwd": "${workspaceFolder}",
+        "protocol": "inspector",
+        "env": {
+          "NODE_ENV": "development"
+        },
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+      },
+      {
+        "name": "Debug NestJS (Watch Mode)",
+        "type": "node",
+        "request": "launch",
+        "runtimeExecutable": "npm",
+        "runtimeArgs": ["run", "start:debug"],
+        "port": 9229,
+        "sourceMaps": true,
+        "restart": true,
+        "trace": "verbose",
+        "console": "integratedTerminal"
+      },
+      {
+        "name": "Attach to Running NestJS",
+        "type": "node",
+        "request": "attach",
+        "port": 9229,
+        "restart": true,
+        "sourceMaps": true,
+        "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+        "trace": "verbose"
+      }
+    ]
+  }
+  
